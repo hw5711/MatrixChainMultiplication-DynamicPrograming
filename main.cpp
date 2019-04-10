@@ -104,7 +104,7 @@ int main()
     int p1[inputMatricNum1]={10,35,15,5,10,20,25};
     int m1[ROWS1][COLS1];
     int s1[ROWS1][COLS1];
-    cout << "With test case #1: ";
+    cout << "\nWith test case #1: ";
     for(int index = 0; index < inputMatricNum1-1; index++)
     {
       cout << "A"<< (index+1)<< "(" << p1[index] << "x" << p1[index+1] << ") ";
@@ -112,7 +112,7 @@ int main()
     Matrix_Chain1(p1, ROWS1, m1, s1);
     cout << "\nResult is: "<< endl;
     print_optimal_parens1(s1, 1, COLS1);
-    cout << endl<< endl;
+    cout << endl;
 
     // Test case 2
     int p2[inputMatricNum2]={10,35,15,5,10,20};
