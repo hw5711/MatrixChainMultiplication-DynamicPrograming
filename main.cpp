@@ -10,9 +10,9 @@ const int COLS2 = 5;
 const int ROWS2 = 5;
 
 // With 6 matrixes
-void Matrix_Chain1(int* p, int n, int m[][COLS1] ,int s[][COLS1])
+int Matrix_Chain1(int* p, int n, int m[][COLS1] ,int s[][COLS1])
 {
-    int i,j,l,tmp;
+    int i,j,l,tmp,counter;
     for (int i = 1; i <= n; i++)
     {
         m[i][i] = 0;
@@ -27,6 +27,7 @@ void Matrix_Chain1(int* p, int n, int m[][COLS1] ,int s[][COLS1])
             for (int k = i + 1; k < j; k++)
             {
                 tmp = m[i][k] + m[k + 1][j] + p[i - 1] * p[k] * p[j];
+                counter++;
                 if (tmp < m[i][j])
                 {
                     m[i][j] = tmp;
@@ -35,6 +36,7 @@ void Matrix_Chain1(int* p, int n, int m[][COLS1] ,int s[][COLS1])
             }
         }
     }
+    return counter;
 }
 
 // With 6 matrixes
@@ -54,9 +56,9 @@ void print_optimal_parens1(int s[][COLS1], int i, int j)
 }
 
 // With 5 matrixes
-void Matrix_Chain2(int* p, int n, int m[][COLS2] ,int s[][COLS2])
+int Matrix_Chain2(int* p, int n, int m[][COLS2] ,int s[][COLS2])
 {
-    int i,j,l,tmp;
+    int i,j,l,tmp,counter;
     for (int i = 1; i <= n; i++)
     {
         m[i][i] = 0;
@@ -71,6 +73,7 @@ void Matrix_Chain2(int* p, int n, int m[][COLS2] ,int s[][COLS2])
             for (int k = i + 1; k < j; k++)
             {
                 tmp = m[i][k] + m[k + 1][j] + p[i - 1] * p[k] * p[j];
+                counter++;
                 if (tmp < m[i][j])
                 {
                     m[i][j] = tmp;
@@ -79,6 +82,7 @@ void Matrix_Chain2(int* p, int n, int m[][COLS2] ,int s[][COLS2])
             }
         }
     }
+    return counter;
 }
 
 // With 5 matrixes
@@ -109,7 +113,8 @@ int main()
     {
       cout << "A"<< (index+1)<< "(" << p1[index] << "x" << p1[index+1] << ") ";
     }
-    Matrix_Chain1(p1, ROWS1, m1, s1);
+    cout << "\nTotal number of scalar manipulication : ";
+    cout << Matrix_Chain1(p1, ROWS1, m1, s1);
     cout << "\nResult is: "<< endl;
     print_optimal_parens1(s1, 1, COLS1);
     cout << endl;
@@ -123,7 +128,8 @@ int main()
     {
       cout << "A"<< (index+1)<< "(" << p2[index] << "x" << p2[index+1] << ") ";
     }
-    Matrix_Chain2(p2, ROWS2, m2, s2);
+    cout << "\nTotal number of scalar manipulication : ";
+    cout << Matrix_Chain2(p2, ROWS2, m2, s2);
     cout << "\nResult is: "<< endl;
     print_optimal_parens2(s2, 1, COLS2);
     cout << endl << endl;
@@ -137,7 +143,8 @@ int main()
     {
       cout << "A"<< (index+1)<< "(" << p3[index] << "x" << p3[index+1] << ") ";
     }
-    Matrix_Chain1(p3, ROWS1, m3, s3);
+    cout << "\nTotal number of scalar manipulication : ";
+    cout << Matrix_Chain1(p3, ROWS1, m3, s3);
     cout << "\nResult is: "<< endl;
     print_optimal_parens1(s3, 1, COLS1);
     cout << endl<< endl;
@@ -151,7 +158,8 @@ int main()
     {
       cout << "A"<< (index+1)<< "(" << p4[index] << "x" << p4[index+1] << ") ";
     }
-    Matrix_Chain2(p4, ROWS2, m4, s4);
+    cout << "\nTotal number of scalar manipulication : ";
+    cout << Matrix_Chain2(p4, ROWS2, m4, s4);
     cout << "\nResult is: "<< endl;
     print_optimal_parens2(s4, 1, COLS2);
     cout << endl << endl;
@@ -166,7 +174,8 @@ int main()
     {
       cout << "A"<< (index+1)<< "(" << p5[index] << "x" << p5[index+1] << ") ";
     }
-    Matrix_Chain1(p5, ROWS1, m5, s5);
+    cout << "\nTotal number of scalar manipulication : ";
+    cout << Matrix_Chain1(p5, ROWS1, m5, s5);
     cout << "\nResult is: "<< endl;
     print_optimal_parens1(s5, 1, COLS1);
     cout << endl<< endl;
